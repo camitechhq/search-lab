@@ -4,22 +4,19 @@ import axios from "axios";
 function App() {
 
   const [inputValue, setInputValue] = useState();
-  const [result, setResult] = useState();
+  const [result, setResult] = useState([]);
 
   useEffect(() => {
     // send req
-    const getResult = () => {
-      const psudoResult = axios.get("https://4afa-146-196-45-149.ngrok-free.app/search", {
+    const getResult = async () => {
+      const psudoResult = await axios.get("https://4afa-146-196-45-149.ngrok-free.app/search", {
         params: {
           string: inputValue
         }
-      }).then((e) => {
-        console.log(e);
-      }).catch((error) => {
-        console.log("error --> " + error)
       })
+      console.log(psudoResult.data.camiTruck);
 
-      const filteredResult = psudoResult.camiTruck ? psudoResult.camiTruck : '';
+      const filteredResult = psudoResult.data.camiTruck ? psudoResult.data.camiTruck : '';
       setResult(filteredResult);
     }
 
@@ -27,7 +24,7 @@ function App() {
       if (inputValue) {
         getResult();
       }
-    }, 300)
+    }, 100)
 
 
     return () => {
@@ -36,9 +33,15 @@ function App() {
   }, [inputValue])
 
 
-  // console.log(data);
-  console.log("Input Value --> " + inputValue);
-  console.log(result);
+  // console.log("Input Value --> " + inputValue);
+
+  const renderMeds = result && result.map((med) => {
+    return (
+      <div>
+        {med.name}
+      </div>
+    )
+  })
 
   return (
     <div className="App" style={{ background: "#202020", height: "100vh", color: "#fff" }}>
@@ -53,6 +56,9 @@ function App() {
           <label>Search</label>
           <br></br>
           <input value={inputValue} onChange={(event) => setInputValue(event.target.value)} style={{ background: "#505050", color: "#fff" }} />
+        </div>
+        <div>
+          {renderMeds}
         </div>
       </center >
     </div >
