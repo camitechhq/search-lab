@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     // send req
     const getResult = async () => {
-      const psudoResult = await axios.get("https://en.wikipedia.org/w/api.php", {
+      const psudoResult = await axios.get("https://4afa-146-196-45-149.ngrok-free.app", {
         params: {
           action: 'query',
           list: 'search',
@@ -42,8 +42,8 @@ function App() {
   console.log(result);
 
   return (
-    <div className="App">
-      <center>
+    <div className="App" style={{ background: "#202020", height: "100vh", color: "#fff" }}>
+      <center style={{ position: "relative", top: "300px" }}>
         <div>
           Search Lab React JS
         </div>
@@ -53,10 +53,10 @@ function App() {
         <div>
           <label>Search</label>
           <br></br>
-          <input value={inputValue} onChange={(event) => setInputValue(event.target.value)} />
+          <input value={inputValue} onChange={(event) => setInputValue(event.target.value)} style={{ background: "#505050", color: "#fff" }} />
         </div>
-      </center>
-    </div>
+      </center >
+    </div >
   );
 
 }
