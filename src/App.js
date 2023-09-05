@@ -8,19 +8,18 @@ function App() {
 
   useEffect(() => {
     // send req
-    const getResult = async () => {
-      const psudoResult = await axios.get("https://4afa-146-196-45-149.ngrok-free.app", {
+    const getResult = () => {
+      const psudoResult = axios.get("https://4afa-146-196-45-149.ngrok-free.app/search", {
         params: {
-          action: 'query',
-          list: 'search',
-          format: 'json',
-          origin: '*',
-          srsearch: inputValue
+          string: inputValue
         }
+      }).then((e) => {
+        console.log(e);
+      }).catch((error) => {
+        console.log("error --> " + error)
       })
-      console.log(psudoResult);
 
-      const filteredResult = psudoResult.data.query.search ? psudoResult.data.query.search : '';
+      const filteredResult = psudoResult.XYZ ? psudoResult.XYZ : '';
       setResult(filteredResult);
     }
 
