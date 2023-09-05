@@ -19,7 +19,7 @@ function App() {
         console.log("error --> " + error)
       })
 
-      const filteredResult = psudoResult.XYZ ? psudoResult.XYZ : '';
+      const filteredResult = psudoResult.camiTruck ? psudoResult.camiTruck : '';
       setResult(filteredResult);
     }
 
