@@ -48,9 +48,8 @@ function App() {
     <div className="App bg-gray-900 h-screen text-white">
       <center>
         <div className="text-4xl font-semibold pt-20 mb-5">
-          Search Lab React JS
+          Camitech Search Lab
         </div>
-        <label className="text-xl font-semibold" >CamiTech</label>
         <div className="flex flex-col gap-2 items-center mt-10 mb-8">
           <label className="text-xl">Search</label>
           <input onChange={(event) => setInputValue(event.target.value)} placeholder="Type your query here" className="bg-gray-700 text-white w-96 p-3" />
