@@ -4,12 +4,12 @@ import axios from "axios";
 function App() {
 
   const [inputValue, setInputValue] = useState();
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState();
 
   useEffect(() => {
     // send req
     const getResult = async () => {
-      const psudoResult = await axios.get("https://4afa-146-196-45-149.ngrok-free.app/search", {
+      const psudoResult = await axios.get("https://d18a-146-196-45-149.ngrok-free.app/search", {
         params: {
           string: inputValue
         }
@@ -35,31 +35,36 @@ function App() {
 
   // console.log("Input Value --> " + inputValue);
 
-  const renderMeds = result && result.map((med) => {
+  const renderMeds = inputValue !== "" ? result && result.map((med) => {
     return (
-      <div>
+      <div key={med.id}>
         {med.name}
       </div>
     )
   })
+    : '';
 
   return (
-    <div className="App" style={{ background: "#202020", height: "100vh", color: "#fff" }}>
-      <center style={{ position: "relative", top: "300px" }}>
-        <div>
+    <div className="App bg-gray-900 h-screen text-white">
+      <center>
+        <div className="text-4xl font-semibold pt-20 mb-5">
           Search Lab React JS
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <div>
-          <label>Search</label>
-          <br></br>
-          <input value={inputValue} onChange={(event) => setInputValue(event.target.value)} style={{ background: "#505050", color: "#fff" }} />
+        <label className="text-xl font-semibold" >CamiTech</label>
+        <div className="flex flex-col gap-2 items-center mt-10 mb-8">
+          <label className="text-xl">Search</label>
+          <input onChange={(event) => setInputValue(event.target.value)} placeholder="Type your query here" className="bg-gray-700 text-white w-96 p-3" />
         </div>
-        <div>
-          {renderMeds}
-        </div>
+        {
+          inputValue !== "" ? result &&
+            <div>
+              <label className="text-2xl font-semibold text-green-400 underline">Results</label>
+              <div className="mt-5" >
+                {renderMeds}
+              </div>
+            </div>
+            : ""
+        }
       </center >
     </div >
   );
