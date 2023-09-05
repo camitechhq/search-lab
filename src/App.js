@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     // send req
     const getResult = async () => {
-      const psudoResult = await axios.get("https://d18a-146-196-45-149.ngrok-free.app/search", {
+      const psudoResult = await axios.get("https://search-oep0.onrender.com/search", {
         params: {
           string: inputValue
         }
