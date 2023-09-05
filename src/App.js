@@ -6,6 +6,8 @@ function App() {
   const [inputValue, setInputValue] = useState();
   const [result, setResult] = useState();
 
+  result && console.log(result);
+
   useEffect(() => {
     // send req
     const getResult = async () => {
@@ -14,7 +16,6 @@ function App() {
           string: inputValue
         }
       })
-      console.log(psudoResult.data.camiTruck);
 
       const filteredResult = psudoResult.data.camiTruck ? psudoResult.data.camiTruck : '';
       setResult(filteredResult);
@@ -31,9 +32,6 @@ function App() {
       clearTimeout(timerid)
     }
   }, [inputValue])
-
-
-  // console.log("Input Value --> " + inputValue);
 
   const renderMeds = inputValue !== "" ? result && result.map((med) => {
     return (
