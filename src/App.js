@@ -58,7 +58,7 @@ function App() {
       </div>
     )
   })
-    : '';
+    : result && setResult();
 
   return (
     <div className="App bg-gray-900 min-h-screen h-full pb-20 text-white">
