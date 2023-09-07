@@ -25,7 +25,7 @@ function App() {
       if (inputValue) {
         getResult();
       }
-    }, 100)
+    }, 0)
 
 
     return () => {
@@ -35,8 +35,20 @@ function App() {
 
   const renderMeds = inputValue !== "" ? result && result.map((med) => {
     return (
-      <div key={med.id}>
-        {med.name}
+      <div key={med.id} className="flex flex-col gap-1 items-center mb-5 bg-gray-600 w-96" >
+        <div>
+          Name:
+          {med.name}
+        </div>
+        <div>
+          Composition:
+          {med.short_composition}
+        </div>
+        <div>
+          Manufacturer:
+          {med.manufacturer_name}
+        </div>
+
       </div>
     )
   })
