@@ -35,17 +35,23 @@ function App() {
 
   const renderMeds = inputValue !== "" ? result && result.map((med) => {
     return (
-      <div key={med.id} className="flex flex-col gap-1 items-center mb-5 bg-gray-600 w-96" >
-        <div>
-          Name:
+      <div key={med.id} className="flex flex-col gap-1 items-start mt-5 pb-3 bg-gray-800 w-96" >
+        <div className="flex flex-row gap-2 items-start" >
+          <div className="font-bold text-blue-400" >
+            Name :
+          </div>
           {med.name}
         </div>
-        <div>
-          Composition:
+        <div className="flex flex-row gap-2 items-start">
+          <div className="font-bold text-blue-400">
+            Composition:
+          </div>
           {med.short_composition}
         </div>
-        <div>
-          Manufacturer:
+        <div className="flex flex-row gap-2 items-start">
+          <div className="font-bold text-blue-400">
+            Manufacturer:
+          </div>
           {med.manufacturer_name}
         </div>
 
@@ -55,7 +61,7 @@ function App() {
     : '';
 
   return (
-    <div className="App bg-gray-900 h-screen text-white">
+    <div className="App bg-gray-900 min-h-screen h-full pb-20 text-white">
       <center>
         <div className="text-4xl font-semibold pt-20 mb-5">
           Camitech Search Lab
