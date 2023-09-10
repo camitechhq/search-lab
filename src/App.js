@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     // send req
     const getResult = async () => {
-      const psudoResult = await axios.get("https://search-oep0.onrender.com/search", {
+      const psudoResult = await axios.get("https://lite-toast.onrender.com/search", {
         params: {
           string: inputValue
         }
